@@ -1,0 +1,16 @@
+s = 'azcbobobegghakl'
+from itertools import count
+
+def findAlphabet(input_string):
+    maxsubstr = input_string[0:0]
+    for start in range(len(input_string)):
+        for end in count(start + len(maxsubstr) + 1):
+            substr = input_string[start:end]
+            if len(substr) != (end - start): 
+                break
+            if sorted(substr) == list(substr):
+                maxsubstr = substr
+    return maxsubstr
+
+x = (findAlphabet(s))
+print (str(x))
